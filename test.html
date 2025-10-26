@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Tile Page</title>
+    <style>
+        :root{
+            --bg:#f5f7fb;
+            --card:#ffffff;
+            --accent:#4f8ef7;
+            --muted:#6b7280;
+            --shadow: 0 6px 18px rgba(31,41,55,0.07);
+            --radius:12px;
+        }
+        html,body{
+            height:100%;
+            margin:0;
+            font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            background: linear-gradient(180deg,var(--bg),#eef3fb 60%);
+            color:#111827;
+        }
+        .wrap{
+            max-width:1100px;
+            margin:40px auto;
+            padding:24px;
+        }
+        header{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:16px;
+            margin-bottom:20px;
+        }
+        h1{
+            margin:0;
+            font-size:1.6rem;
+            letter-spacing:-0.2px;
+        }
+        p.lead{
+            margin:6px 0 0 0;
+            color:var(--muted);
+            font-size:0.95rem;
+        }
+
+        /* Tile grid */
+        .tiles{
+            display:grid;
+            grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+            gap:16px;
+            margin-top:18px;
+        }
+        .tile{
+            background:var(--card);
+            border-radius:var(--radius);
+            padding:18px;
+            box-shadow:var(--shadow);
+            display:flex;
+            flex-direction:column;
+            gap:12px;
+            transition:transform .18s ease, box-shadow .18s ease;
+            cursor:default;
+            min-height:120px;
+        }
+        .tile:hover{
+            transform:translateY(-6px);
+            box-shadow: 0 18px 36px rgba(31,41,55,0.12);
+        }
+        .tile .title{
+            display:flex;
+            align-items:center;
+            gap:10px;
+            font-weight:600;
+            font-size:1rem;
+        }
+        .tile .meta{
+            color:var(--muted);
+            font-size:0.88rem;
+        }
+        .tile .icon{
+            width:44px;
+            height:44px;
+            border-radius:10px;
+            display:inline-grid;
+            place-items:center;
+            color:#fff;
+            font-weight:700;
+            flex:0 0 44px;
+        }
+        .icon.blue{background:linear-gradient(180deg,#4f8ef7,#2f6fe8);}
+        .icon.green{background:linear-gradient(180deg,#22c55e,#16a34a);}
+        .icon.purple{background:linear-gradient(180deg,#8b5cf6,#7c3aed);}
+        .tile .actions{
+            margin-top:auto;
+            display:flex;
+            gap:8px;
+        }
+        .btn{
+            border:0;
+            background:transparent;
+            color:var(--accent);
+            font-weight:600;
+            padding:8px 10px;
+            border-radius:8px;
+            cursor:pointer;
+        }
+        .btn.ghost{
+            color:var(--muted);
+            font-weight:500;
+        }
+
+        @media (max-width:460px){
+            header{flex-direction:column;align-items:flex-start}
+            .wrap{padding:16px;margin:20px auto}
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div>
+                <h1>Tiles</h1>
+                <p class="lead">A simple responsive page that displays tiles (cards) with title, description and actions.</p>
+            </div>
+            <div>
+                <button class="btn"
